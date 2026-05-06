@@ -1,30 +1,36 @@
 import styled from "styled-components";
 
 export const Card = styled.div`
-  display: grid;
-  grid-gap: 2rem;
-  margin-bottom: 2rem;
-  grid-template-columns: 1fr;
-  border-bottom: 1px solid rgb(0, 0, 0);
-  padding-bottom: 2rem;
+  width: 100%;
+  max-width: 350px;        /* 🔥 important for row */
+  display: flex;
+  flex-direction: column;  /* always column */
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background:transparent;
+
+  @media (min-width: 768px) {
+    max-width: 45%;
+  }
+
   @media (min-width: 992px) {
-    grid-template-columns: 1fr 1fr;
-    border-bottom: 0;
-    padding-bottom: 0;
+    max-width: 30%;
   }
 `;
 
 export const CardLeft = styled.div`
-  background: #151418;
-  border-radius: 3px;
-  padding: 3px;          
-  margin: 15px auto;     
-  display: block;      
-
-
+  width: 100%;
+  
   img {
-    border-radius: 3px;
-    height: 100%;
+    width: 1000%;        /* 🔥 full width */
+    height: 150px;      /* fixed height */
+     /* image stretch नहोस् */
+    border-radius: 5px;
+     box-shadow: 0 4px 10px rgb(0, 0, 0);
+
+      transition: 0.3s ease;  /* smooth */
+  }
   }
 `;
 
@@ -34,9 +40,12 @@ export const CardRight = styled.div`
   justify-content: center;
   align-items: center;
 
+  color: #000000; /* default text */
+
   h4 {
     font-size: 1.5rem;
-    font-weight: 400;
+    font-weight: 500;
+    color: #000000; /* brighter title */
   }
 
   p {
@@ -44,13 +53,22 @@ export const CardRight = styled.div`
     max-width: 400px;
     margin-top: 10px;
     margin-bottom: 1rem;
-    color: rgba(0, 0, 0, 0.815);
+    color: #01060b; /* soft readable text */
     text-align: center;
 
     @media (min-width: 992px) {
       text-align: start;
     }
   }
+
+  .stackTitle {
+    color: #000000;
+  }
+
+  .tags {
+    color: #000000;
+  }
+    
   @media (min-width: 992px) {
     align-items: flex-start;
     margin-top: 1rem;
